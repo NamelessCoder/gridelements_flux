@@ -4,3 +4,4 @@ if (!defined('TYPO3_MODE')) {
 }
 
 \FluidTYPO3\Flux\Core::registerConfigurationProvider('NamelessCoder\GridelementsFlux\Provider\GridelementsProvider');
+\FluidTYPO3\Flux\Core::registerProviderExtensionKey('NamelessCoder.GridelementsFlux', 'CoreContent');
