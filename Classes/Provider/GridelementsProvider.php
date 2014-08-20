@@ -36,14 +36,6 @@ class GridelementsProvider extends AbstractProvider implements ProviderInterface
 	protected $fieldName = 'pi_flexform';
 
 	/**
-	 * @param array $row
-	 * @return Form|NULL
-	 */
-	public function getForm(array $row) {
-		return parent::getForm($row);
-	}
-
-	/**
 	 * Gets a Grid instance with rows and columns as configured
 	 * in the selected gridelements content element type.
 	 *
