@@ -1,6 +1,10 @@
 Gridelements Flux Integration
 =============================
 
+## Proof-of-concept grade work!
+
+Do not use in production. The purpose of this extension is simply to demonstrate how Flux might be integrated into Gridelements.
+
 ### What is this?
 
 A TYPO3 extension which enables one extension - EXT:gridelements - to use the feature set of another extension - EXT:flux. The former is an extension to create column elements into which other content elements may be inserted. The latter is a way to create user-editable form fields, the values of which can be used to manipulate the rendering of said element.
