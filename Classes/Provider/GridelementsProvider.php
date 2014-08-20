@@ -18,6 +18,7 @@ class GridelementsProvider extends AbstractProvider implements ProviderInterface
 
 	const FIELDNAME_TEMPLATESOURCE = 'tx_gridelementsflux_templatesource';
 	const FIELDNAME_TEMPLATEFILE = 'tx_gridelementsflux_templatefile';
+	const FIELDNAME_CONTENTLAYOUT = 'tx_gridelements_backend_layout';
 
 	/**
 	 * @var string
@@ -63,7 +64,8 @@ class GridelementsProvider extends AbstractProvider implements ProviderInterface
 	 * @return string|NULL
 	 */
 	public function getTemplateSource(array $row) {
-		if (FALSE === empty($row[self::FIELDNAME_TEMPLATESOURCE])) {
+		$layoutRecord = $this->recordService->getSingle('tx_gridelements_backend_layout', '*', $row[self::FIELDNAME_CONTENTLAYOUT]);
+		if (FALSE === empty($layoutRecord[self::FIELDNAME_TEMPLATESOURCE])) {
 			// Record has defined a template source that should be used. Template source
 			// may or may not contain a Configuration section; if none is contained, the
 			// element is assumed to have no Form attached (e.g. getForm() returns NULL).
