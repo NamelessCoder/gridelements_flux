@@ -4,6 +4,7 @@ namespace NamelessCoder\GridelementsFlux\Provider;
 use FluidTYPO3\Flux\Form\Container\Grid;
 use FluidTYPO3\Flux\Provider\ProviderInterface;
 use FluidTYPO3\Flux\Provider\AbstractProvider;
+use FluidTYPO3\Flux\Form;
 
 /**
  * Class GridelementsProvider
@@ -14,6 +15,29 @@ use FluidTYPO3\Flux\Provider\AbstractProvider;
  * @package NamelessCoder\GridelementsFlux\Provider
  */
 class GridelementsProvider extends AbstractProvider implements ProviderInterface {
+
+	/**
+	 * @var string
+	 */
+	protected $contentObjectType = 'gridelements';
+
+	/**
+	 * @var string
+	 */
+	protected $tableName = 'tt_content';
+
+	/**
+	 * @var string
+	 */
+	protected $fieldName = 'pi_flexform';
+
+	/**
+	 * @param array $row
+	 * @return Form|NULL
+	 */
+	public function getForm(array $row) {
+		return parent::getForm($row);
+	}
 
 	/**
 	 * Gets a Grid instance with rows and columns as configured
