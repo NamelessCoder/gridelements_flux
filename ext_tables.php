@@ -4,13 +4,13 @@ if (!defined('TYPO3_MODE')) {
 }
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_gridelements_backend_layout', array(
-	'tx_gridelementsflux_templatesource' => array(
+	\NamelessCoder\GridelementsFlux\Provider\GridelementsProvider::FIELDNAME_TEMPLATESOURCE => array(
 		'label' => 'LLL:EXT:gridelements_flux/Resources/Private/Language/locallang.xlf:templateSource',
 		'config' => array(
 			'type' => 'text'
 		)
 	),
-	'tx_gridelementsflux_templatefile' => array(
+	\NamelessCoder\GridelementsFlux\Provider\GridelementsProvider::FIELDNAME_TEMPLATEFILE => array(
 		'label' => 'LLL:EXT:gridelements_flux/Resources/Private/Language/locallang.xlf:templateFile',
 		'config' => array(
 			'type' => 'input'
