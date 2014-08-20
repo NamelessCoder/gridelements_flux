@@ -23,7 +23,7 @@ class GridelementsProvider extends AbstractProvider implements ProviderInterface
 	/**
 	 * @var string
 	 */
-	protected $contentObjectType = 'gridelements';
+	protected $contentObjectType = 'gridelements_pi1';
 
 	/**
 	 * @var string
