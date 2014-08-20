@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-08-20T17:54:12Z" product-name="lang">
+		<header/>
+		<body>
+			<trans-unit id="templateSource" xml:space="preserve">
+				<source>Fluid template source</source>
+			</trans-unit>
+			<trans-unit id="templateFile" xml:space="preserve">
+				<source>Fluid template file</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
