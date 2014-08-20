@@ -5,6 +5,8 @@ use FluidTYPO3\Flux\Form\Container\Grid;
 use FluidTYPO3\Flux\Provider\ProviderInterface;
 use FluidTYPO3\Flux\Provider\AbstractProvider;
 use FluidTYPO3\Flux\Form;
+use FluidTYPO3\Flux\Utility\ExtensionNamingUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * Class GridelementsProvider
@@ -56,14 +58,27 @@ class GridelementsProvider extends AbstractProvider implements ProviderInterface
 	 * @return string|NULL
 	 */
 	public function getTemplateSource(array $row) {
-		$layoutRecord = $this->recordService->getSingle('tx_gridelements_backend_layout', '*', $row[self::FIELDNAME_CONTENTLAYOUT]);
+		$layoutRecord = $this->recordService->getSingle('tx_gridelements_backend_layout', self::FIELDNAME_TEMPLATESOURCE, $row[self::FIELDNAME_CONTENTLAYOUT]);
 		if (FALSE === empty($layoutRecord[self::FIELDNAME_TEMPLATESOURCE])) {
 			// Record has defined a template source that should be used. Template source
 			// may or may not contain a Configuration section; if none is contained, the
 			// element is assumed to have no Form attached (e.g. getForm() returns NULL).
-			return $row[self::FIELDNAME_TEMPLATESOURCE];
+			return $layoutRecord[self::FIELDNAME_TEMPLATESOURCE];
 		}
 		return parent::getTemplateSource($row);
+	}
+
+	/**
+	 * @param array $row
+	 * @return string|NULL
+	 */
+	public function getTemplatePathAndFilename(array $row) {
+		$layoutRecord = $this->recordService->getSingle('tx_gridelements_backend_layout', self::FIELDNAME_TEMPLATEFILE, $row[self::FIELDNAME_CONTENTLAYOUT]);
+		if (FALSE === empty($layoutRecord[self::FIELDNAME_TEMPLATEFILE])) {
+			// Record defined a template file which we should use.
+			return GeneralUtility::getFileAbsFileName($layoutRecord[self::FIELDNAME_TEMPLATEFILE]);
+		}
+		return NULL;
 	}
 
 }
